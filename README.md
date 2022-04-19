@@ -3,8 +3,8 @@ This game is developed using HTML 05 canvas and vanilla javascript
 
 ### Game Checklist
 
-- [] Create a player 
-- [] Shoot projectiles
+- [X] Create a player 
+- [X] Shoot projectiles
 - [] Create enemies
 - [] Detect collision on enemy - projectile hit
 - [] Detect collision on enemy - player hit
