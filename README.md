@@ -8,7 +8,7 @@ This game is developed using HTML 05 canvas and vanilla javascript
 - [X] Create enemies
 - [X] Detect collision on enemy - projectile hit
 - [X] Detect collision on enemy - player hit
-- [] Remove off screen projectiles
+- [X] Remove off screen projectiles
 - [] Colorize
 - [] Shrink enemies on hit
 - [] Create particle explosion on hit

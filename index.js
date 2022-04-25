@@ -117,22 +117,6 @@ const spawnEnemies = () => {
     }, 1000)
 } 
 
-addEventListener('click', (event)=>{
-  
-  const angle = Math.atan2(
-      event.clientY - canvas.height / 2 ,
-      event.clientX - canvas.width / 2 
-  )
-
-  const velocity = {
-      x : Math.cos(angle),
-      y : Math.sin(angle)
-  }
-
-  projectiles.push(
-      new Projectile ((canvas.width/2), (canvas.height/2), 5, 'red', velocity) 
-  )  
-})
 
 let animationID; 
 
@@ -140,8 +124,15 @@ function animate() {
     animationID = requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     player.draw() //draw the player after clearing
-    projectiles.forEach((projectile) => {
+    projectiles.forEach((projectile, index) => {
         projectile.update();
+
+        //remove projectiles from edges of the screen
+        if (projectile.x + projectile.radius < 0 || projectile.x - projectile.radius > canvas.width || projectile.y + projectile.radius < 0 || projectile.y - projectile.radius > canvas.height) {
+            setTimeout(() => {
+                projectiles.splice(index, 1)
+            }, 0);
+        }
     }); 
     enemies.forEach((enemy, enemyIndex)=> {
         enemy.update();
@@ -170,6 +161,23 @@ function animate() {
         });
     });  
 }
+
+addEventListener('click', (event)=>{
+  
+    const angle = Math.atan2(
+        event.clientY - canvas.height / 2 ,
+        event.clientX - canvas.width / 2 
+    )
+  
+    const velocity = {
+        x : Math.cos(angle),
+        y : Math.sin(angle)
+    }
+  
+    projectiles.push(
+        new Projectile ((canvas.width/2), (canvas.height/2), 5, 'red', velocity) 
+    )  
+  })
 
 animate();
 spawnEnemies();
