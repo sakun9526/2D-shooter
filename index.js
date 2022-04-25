@@ -134,8 +134,10 @@ addEventListener('click', (event)=>{
   )  
 })
 
+let animationID; 
+
 function animate() {
-    requestAnimationFrame(animate);
+    animationID = requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     player.draw() //draw the player after clearing
     projectiles.forEach((projectile) => {
@@ -143,6 +145,14 @@ function animate() {
     }); 
     enemies.forEach((enemy, enemyIndex)=> {
         enemy.update();
+
+        const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y)
+
+        //end the game after collision
+        if (distance - enemy.radius - player.radius < 1){
+            cancelAnimationFrame(animationID)
+        }
+
 
         //distance between the projectiles
         projectiles.forEach((projectile, projectileIndex) => {
