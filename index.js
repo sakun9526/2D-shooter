@@ -34,7 +34,23 @@ const x = canvas.width/2
 const y = canvas.height/2
 
 
-const player = new Player(x, y, 10, 'white')
+let player = new Player(x, y, 10, 'white')
+// store projectiles in an array 
+let projectiles = [];
+// store enemies in an array
+let enemies = [];
+let particles = [];
+
+function init() {
+    player = new Player(x, y, 10, 'white')
+    projectiles = [];
+    enemies = [];
+    particles = [];
+    score = 0;
+    scoreElement.innerHTML = score;
+    modelScore.innerHTML = score;
+    
+}
 
 // create projectiles 
 class Projectile{
@@ -123,11 +139,6 @@ class Particles {
     }
 }
 
-// store projectiles in an array 
-const projectiles = [];
-// store enemies in an array
-const enemies = [];
-const particles = [];
 
 const spawnEnemies = () => {
     setInterval(()=> {
@@ -256,9 +267,9 @@ addEventListener('click', (event)=>{
   })
 
 startGameBtn.addEventListener('click', () => {
+    init();
     animate();
     spawnEnemies();
-
     modalElement.style.display = 'none'
 
 })
