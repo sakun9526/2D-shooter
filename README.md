@@ -1,5 +1,8 @@
 # 2D-shooter
-This game is developed using HTML 05 canvas and vanilla javascript
+This game is developed using HTML 05 canvas and vanilla javascript. [Tailwind CSS](https://tailwindcss.com/) was used for the styling. This project is hosted on [Firebase](https://firebase.google.com/)
+
+:link: [Demo](https://d-shooter-55ae3.web.app/)
+
 
 ### Game Checklist
 
@@ -17,5 +20,9 @@ This game is developed using HTML 05 canvas and vanilla javascript
 - [X] Add game over UI
 - [X] Add restart button 
 
+### Future Developments
 
+- [] User accounts to sign up / in 
+- [] Leaderboard based on the score
+- [] Multiplayer options
 
