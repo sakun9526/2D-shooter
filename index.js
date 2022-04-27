@@ -10,6 +10,7 @@ canvas.height = innerHeight;
 const scoreElement = document.querySelector('#scoreElement');
 const startGameBtn = document.querySelector('#startGameBtn');
 const modalElement = document.querySelector('#modalElement');
+const modelScore = document.querySelector('#modelScore');
 
 // create player 
 class Player {
@@ -194,6 +195,8 @@ function animate() {
         //end the game after collision
         if (distance - enemy.radius - player.radius < 1){
             cancelAnimationFrame(animationID)
+            modalElement.style.display = 'flex'
+            modelScore.innerHTML = score
         }
 
 
