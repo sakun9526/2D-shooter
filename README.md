@@ -13,8 +13,9 @@ This game is developed using HTML 05 canvas and vanilla javascript
 - [X] Shrink enemies on hit
 - [X] Create particle explosion on hit
 - [X] Add score
+- [X] Add start game button
 - [] Add game over UI
 - [] Add restart button 
-- [] Add start game button
+
 
 
